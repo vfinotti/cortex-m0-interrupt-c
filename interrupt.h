@@ -19,7 +19,6 @@ void interrupt_reserved_4 (void);
 void interrupt_reserved_5 (void);
 void interrupt_reserved_6 (void);
 void interrupt_svcall (void);
-void interrupt_debug (void);
 void interrupt_reserved_7 (void);
 void interrupt_reserved_8 (void);
 void interrupt_pendsv (void);

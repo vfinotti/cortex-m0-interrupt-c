@@ -23,7 +23,6 @@ void *vector_table[] __attribute__((section(".vector_table"))) =
     (void *) interrupt_reserved_5,
     (void *) interrupt_reserved_6,
     (void *) interrupt_svcall,
-    (void *) interrupt_debug,
     (void *) interrupt_reserved_7,
     (void *) interrupt_reserved_8,
     (void *) interrupt_pendsv,
