@@ -21,7 +21,7 @@ C_INCLUDES = -Icmsis/Include/ -Icmsis
 CFLAGS = $(C_CPU_FLAGS) $(C_DEBUG_FLAGS) $(C_OTHER_FLAGS) $(C_OPTIMIZATION_FLAGS) $(C_INCLUDES)
 LD_FLAGS = -T gcc_arm.ld -Wl,-Map=project.map -Wl,--gc-sections -Icmsis/Include/ -Icmsis -nostartfiles
 
-SOURCES = vector_table.c startup_ARMCM0.c system_ARMCM0.c main.c
+SOURCES = startup_ARMCM0.c system_ARMCM0.c main.c
 OBJECTS = $(SOURCES:.c=.o)
 
 all: project.hex project.bin project.S
