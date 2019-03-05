@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#include <ARMCM0.h>
+
 #define LedToggle 0xf0f0f0f0
 
 #define X0             (*(volatile signed long int*)0x40000000)
@@ -39,6 +41,28 @@
 #define Y_RESULT3      (*(volatile signed long int*)0x40000314)
 #define Z_RESULT3      (*(volatile signed long int*)0x40000318)
 #define CONTROL_DONE3  (*(volatile signed long int*)0x4000031c)
+
+/*
+ * address    description                comment
+ * 0x0   32   Prescale Register          Global Prescale register
+ * 0x8   32   Timer Enable Register      Enable Timers
+ * 0xc   32   Interrupt Enable Register  Enable interrupt p. timer
+ * 0x10  64   'mtime' Register           'mtime'
+ * 0x18  64   'mtimecmp' Register        'mtimecmp'
+ */
+
+#define TIMER_GLO_PRESCALE (*(volatile unsigned long int*) 0x40000400)
+#define TIMER_IPENDING     (*(volatile unsigned long int*) 0x40000408)
+#define TIMER_IRQ_EN       (*(volatile unsigned long int*) 0x4000040C)
+#define TIMER_MTIME        (*(volatile unsigned long long*)0x40000410)
+#define TIMER_MTIMECMP0    (*(volatile unsigned long long*)0x40000418)
+
+
+volatile unsigned int counter; // dummy
+volatile unsigned int ii;      // loop iterator
+volatile unsigned int trap;    // memory access pattern receiver
+volatile unsigned int period;  // time interval for memory access
+
 
 
 
