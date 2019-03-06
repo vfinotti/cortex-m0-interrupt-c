@@ -114,8 +114,6 @@ int main(void)
   TIMER_IRQ_EN = 1U;
   TIMER_GLO_PRESCALE = 0U;
 
-  __enable_irq();
-
   NVIC_SetPriority (0, 1);            // Set Timer priority
   NVIC_EnableIRQ (0);                 // Enable Timer Interrupt
 
