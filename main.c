@@ -117,8 +117,10 @@ int main(void)
   NVIC_SetPriority (0, 1);            // Set Timer priority
   NVIC_EnableIRQ (0);                 // Enable Timer Interrupt
 
-  while(1)
+  SCB->SCR |= 0x2;  // Enable S1eep-on-exit feature
+
+  while (1)
     {
-      __WFI();
+
     }
 }
